@@ -1,0 +1,189 @@
+;; ======================================= POLYBAR CONFIG ====================================
+
+[colors]
+;background = #2E3440
+background-alt = #444
+;foreground = #dfdfdf
+foreground-alt = #555
+background = #282828
+foreground = #ebdbb2
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+;; ===================== BARS ========================
+
+[bar/main]
+bottom = false
+offset-y = 5
+height = 27
+radius = 0
+fixed-center = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+;line-size = 3
+;line-color = #f00
+padding-left = 0
+padding-right = 2 
+
+module-margin-left = 1
+module-margin-right = 2 
+
+font-0 = "JetBrains Mono:style=Bold:pixelsize=11;2"
+font-1 = "Symbols Nerd Font:fontformat=truetype:pixelsize=13;4"
+
+
+[bar/one]
+inherit = bar/main
+;height = 27
+height = 20 
+;width = 38%
+width = 15%
+offset-x = 5
+offset-y = 5
+;modules-center = bspwm
+modules-left = bspwm
+
+[bar/two]
+inherit = bar/main
+;height = 27
+height = 20
+width = 35%
+offset-x = 860
+offset-y = 5
+modules-center = wlan eth battery pulseaudio date 
+
+
+
+
+;; =================== BSPWM =====================
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %icon%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %icon%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %icon%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+; Separator in between workspaces
+;label-separator = |
+
+ws-icon-0 = I;I
+ws-icon-1 = II;II
+ws-icon-2 = III;III
+ws-icon-3 = IV;IV
+ws-icon-4 = V;V
+;ws-icon-5 = VI;VI
+;ws-icon-6 = VII;VII
+;ws-icon-7 = VIII;VIII
+;ws-icon-8 = IX;IX
+;ws-icon-9 = X;X
+
+;; =================== WLAN =====================
+;[module/wlan]
+;type = internal/network
+;interface = wlp0s12u2
+;interval = 2
+
+;format-connected = <label-connected>
+;format-connected-prefix = "直 "
+;format-connected-prefix-foreground = #5E81AC
+;format-connected-underline = #9f78e1
+;label-connected = %essid% 直 [U %upspeed% D %downspeed%]
+;label-connected-foreground = #689d6a  
+;label-disconnected = 睊
+
+;; =================== ETH =====================
+[module/eth]
+type = internal/network
+interface = enp0s3
+interval = 2
+
+format-connected =  <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground =  #fff 
+label-connected =   [U %upspeed% D %downspeed%]
+;label-connected =   %upspeed%  %downspeed%
+label-connected-foreground = #689d6a 
+label-disconnected = 
+
+
+;; =================== BATTERY =====================
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-framerate = 750
+
+
+
+;; =================== PULSEAUDIO =====================
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
+
+ramp-volume-foreground = #b8bb26 
+label-volume-foreground = #b8bb26 
+label-muted = muted
+format-muted-prefix = " "
+label-muted-foreground = #666
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+
+
+;; =================== DATE =====================
+
+[module/date]
+type = internal/date
+date = %a %b %d %H:%M %Y 
+
+
+
+
+
