@@ -30,8 +30,8 @@ else
 
 fi 
 
-mv TEMP_1/themes/* /$HOME/.themes  
-mv TEMP_1/icons/* /$HOME/.icons  
+mv TEMP_1/themes/* /$HOME/.themes/
+mv TEMP_1/icons/* /$HOME/.icons/  
 sudo rm -r TEMP_1  
 }
 
