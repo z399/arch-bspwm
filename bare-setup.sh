@@ -26,12 +26,12 @@ echo "DIR exist, copying"
 
 else                                                                                                          
 
-  mkdir -p /$HOME/.themes .icons/Gruvbox-Material-Dark
+  mkdir -p /$HOME/.themes .icons
 
 fi 
 
 mv TEMP_1/themes/* /$HOME/.themes/
-mv TEMP_1/icons/* /$HOME/.icons/  
+mv TEMP_1/icons /$HOME/.icons/  
 sudo rm -r TEMP_1  
 }
 
