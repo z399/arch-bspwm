@@ -26,7 +26,7 @@ echo "DIR exist, copying"
 
 else                                                                                                          
 
-  mkdir /$HOME/.themes .icons 
+  mkdir -p /$HOME/.themes .icons/Gruvbox-Material-Dark
 
 fi 
 
